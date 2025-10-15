@@ -3,7 +3,7 @@ import ProductCard from '../components/products/ProductCard';
 import ProductDetail from '../components/products/ProductDetail';
 import ProductFilter from '../components/products/ProductFilter';
 import Modal from '../components/shared/Modal';
-import { useCart } from '../hooks/useCart';
+import { useCart } from '../hooks/UseCart';
 import { products } from '../data/products';
 
 const Products = () => {

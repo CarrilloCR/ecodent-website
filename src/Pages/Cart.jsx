@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trash2, Plus, Minus, ShoppingBag, ArrowRight } from 'lucide-react';
-import { useCart } from '../hooks/useCart';
+import { useCart } from '../hooks/UseCart';
 import Button from '../components/shared/Button';
 import Card from '../components/shared/Card';
 import { Link } from 'react-router-dom';

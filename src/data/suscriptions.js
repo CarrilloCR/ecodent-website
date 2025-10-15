@@ -1,4 +1,4 @@
-export const products = [
+export const subscriptionPlans = [
   {
     id: 1,
     name: "Kit Inicial Ecodent",

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PlanCard from '../components/subscription/PlanCard';
-import PlanComparison from '../components/subscription/PlanComparison';
 import SubscriptionForm from '../components/subscription/SubscriptionForm';
 import Modal from '../components/shared/Modal';
-import { subscriptionPlans } from '../data/subscriptions';
+import { subscriptionPlans } from '../data/suscriptions';
 import { Check } from 'lucide-react';
 
 const Subscription = () => {

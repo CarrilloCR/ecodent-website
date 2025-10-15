@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingCart, User, Leaf } from 'lucide-react';
-import { useCart } from '@hooks/useCart';
-import { useAuth } from '@hooks/useAuth';
+import { useCart } from '../../hooks/UseCart';
+import { useAuth } from '../../hooks/UseAuth';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

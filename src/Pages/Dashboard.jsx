@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { User, Package, CreditCard, MapPin, Settings, LogOut } from 'lucide-react';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../hooks/UseAuth';
 import Card from '../components/shared/Card';
 import Button from '../components/shared/Button';
 import Input from '../components/shared/Input';

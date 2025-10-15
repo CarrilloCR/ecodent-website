@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/layout.jsx';
-import Home from './pages/Home.jsx';
-import About from './pages/About.jsx';
-import Products from './pages/Products.jsx';
-import Subscription from './pages/Subscription.jsx';
-import Impact from './pages/Impact.jsx';
-import Contact from './pages/Contact.jsx';
-import Cart from './pages/Cart.jsx';
-import Dashboard from './pages/Dashboard.jsx';
+import Home from './Pages/Home.jsx';
+import About from './Pages/About.jsx';
+import Products from './Pages/Products.jsx';
+import Subscription from './Pages/Subscription.jsx';
+import Impact from './Pages/Impact.jsx';
+import Contact from './Pages/Contact.jsx';
+import Cart from './Pages/Cart.jsx';
+import Dashboard from './Pages/Dashboard.jsx';
 
 function App() {
   return (
