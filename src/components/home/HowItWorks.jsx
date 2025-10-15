@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShoppingCart, Package, Smile, Sprout } from 'lucide-react';
-
+import Button from '../shared/Button'; 
 const HowItWorks = () => {
   const steps = [
     {
