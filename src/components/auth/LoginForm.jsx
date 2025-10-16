@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import Input from '../shared/Input';
 import Button from '../shared/Button';
+import { useAuth } from '../../hooks/UseAuth';
+import { useNotification } from '../../context/NotificationContext';
 
 const LoginForm = ({ onSuccess, onSwitchToRegister }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,6 +12,8 @@ const LoginForm = ({ onSuccess, onSwitchToRegister }) => {
     password: ''
   });
   const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
+  const { showNotification } = useNotification();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +22,19 @@ const LoginForm = ({ onSuccess, onSwitchToRegister }) => {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      onSuccess(formData);
+      
+      // Login exitoso
+      login({
+        email: formData.email,
+        fullName: formData.email.split('@')[0],
+        phone: '+506 8888-8888'
+      });
+      
+      showNotification('success', '¡Bienvenido de nuevo a Ecodent! 🌱');
+      
+      setTimeout(() => {
+        onSuccess(formData);
+      }, 500);
     }, 1500);
   };
 

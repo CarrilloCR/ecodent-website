@@ -11,20 +11,36 @@ const ProductDetail = ({ product, onClose, onAddToCart }) => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      {/* Image Section */}
+     {/* Image Section */}
       <div className="space-y-4">
-        <div className="relative h-96 bg-accent rounded-2xl flex items-center justify-center">
-          <div className="text-center">
-            <Package className="w-32 h-32 text-primary mx-auto" />
-            <p className="text-gray-500 mt-4">{product.image}</p>
-          </div>
+        <div className="relative h-96 bg-accent rounded-2xl overflow-hidden">
+          <img 
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              const placeholder = document.createElement('div');
+              placeholder.className = 'absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-50';
+              placeholder.innerHTML = '<div class="text-center"><p class="text-gray-500 font-medium">Imagen no disponible</p></div>';
+              e.target.parentElement.appendChild(placeholder);
+            }}
+          />
         </div>
         
         {/* Thumbnails */}
         <div className="grid grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-20 bg-accent rounded-lg flex items-center justify-center cursor-pointer hover:ring-2 ring-secondary transition-all">
-              <span className="text-xs text-gray-500">Vista {i}</span>
+            <div key={i} className="h-20 bg-accent rounded-lg flex items-center justify-center cursor-pointer hover:ring-2 ring-secondary transition-all overflow-hidden">
+              <img 
+                src={product.image}
+                alt={`${product.name} vista ${i}`}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.parentElement.innerHTML += '<span class="text-xs text-gray-500">Vista ' + i + '</span>';
+                }}
+              />
             </div>
           ))}
         </div>

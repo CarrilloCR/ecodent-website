@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAuth } from '../hooks/UseAuth';
 import Hero from '../components/home/Hero';
 import Features from '../components/home/Features';
 import ProductShowcase from '../components/home/ProductShowcase';
@@ -7,8 +8,10 @@ import Testimonials from '../components/home/Testimonials';
 import Stats from '../components/home/Stats';
 
 const Home = () => {
+  const { isAuthenticated } = useAuth();
+  
   return (
-    <div>
+    <div className={isAuthenticated ? '' : ''}>
       <Hero />
       <Features />
       <ProductShowcase />

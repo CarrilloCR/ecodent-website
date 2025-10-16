@@ -6,10 +6,14 @@ import RegisterForm from './RegisterForm';
 const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
   const [mode, setMode] = useState(initialMode);
 
+  // Actualizar el modo cuando cambie initialMode
+  React.useEffect(() => {
+    setMode(initialMode);
+  }, [initialMode]);
+
   const handleSuccess = (userData) => {
     console.log('Auth success:', userData);
     onClose();
-    // Here you would typically handle authentication with your backend
   };
 
   return (

@@ -29,14 +29,20 @@ const ProductCard = ({ product, onAddToCart, onQuickView }) => {
         />
       </button>
 
-      {/* Image */}
+       {/* Image */}
       <div className="relative h-64 bg-accent rounded-xl mb-4 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <Package className="w-24 h-24 text-primary mx-auto" />
-            <p className="text-sm text-gray-500 mt-2">{product.image}</p>
-          </div>
-        </div>
+        <img 
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          onError={(e) => {
+            e.target.style.display = 'none';
+            const placeholder = document.createElement('div');
+            placeholder.className = 'absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-50';
+            placeholder.innerHTML = '<div class="text-center"><p class="text-gray-500 font-medium">Imagen no disponible</p></div>';
+            e.target.parentElement.appendChild(placeholder);
+          }}
+        />
         
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -50,7 +56,6 @@ const ProductCard = ({ product, onAddToCart, onQuickView }) => {
           </Button>
         </div>
       </div>
-
       {/* Content */}
       <div className="space-y-3">
         <Badge variant="outline" className="text-xs">

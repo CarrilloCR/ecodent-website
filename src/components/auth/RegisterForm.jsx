@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { User, Mail, Lock, Phone, Eye, EyeOff } from 'lucide-react';
 import Input from '../shared/Input';
 import Button from '../shared/Button';
+import { useAuth } from '../../hooks/UseAuth';
+import { useNotification } from '../../context/NotificationContext';
 
 const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +16,8 @@ const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const { register } = useAuth();
+  const { showNotification } = useNotification();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +33,7 @@ const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      showNotification('error', 'Por favor corrige los errores en el formulario');
       return;
     }
 
@@ -37,7 +42,19 @@ const RegisterForm = ({ onSuccess, onSwitchToLogin }) => {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      onSuccess(formData);
+      
+      // Registro exitoso
+      register({
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone
+      });
+      
+      showNotification('success', '¡Cuenta creada exitosamente! Bienvenido a Ecodent 🌱');
+      
+      setTimeout(() => {
+        onSuccess(formData);
+      }, 500);
     }, 1500);
   };
 
