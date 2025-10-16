@@ -15,6 +15,21 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
+      animation: {
+        'spin-slow': 'spin 20s linear infinite',
+        'scale-in': 'scaleIn 0.3s ease-out',
+        'float': 'float 3s ease-in-out infinite',
+      },
+      keyframes: {
+        scaleIn: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+      },
     },
   },
   plugins: [],

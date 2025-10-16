@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart, User, Leaf } from 'lucide-react';
+import { Menu, X, ShoppingCart, User } from 'lucide-react';
 import { useCart } from '../../hooks/UseCart';
 import { useAuth } from '../../hooks/UseAuth';
 
@@ -39,14 +39,13 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="relative">
-              <Leaf className={`w-8 h-8 transition-colors ${
-                isScrolled ? 'text-secondary' : 'text-white'
-              } group-hover:rotate-12 transition-transform`} />
-              <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-            </div>
-            <span className={`text-2xl font-bold transition-colors ${
+          <Link to="/" className="flex items-center space-x-2 group hover:opacity-80 transition-opacity">
+            <img 
+              src="/images/logo.jpeg" 
+              alt="Ecodent Logo" 
+              className="h-12 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
+            />
+            <span className={`text-2xl font-bold transition-colors hidden sm:inline ${
               isScrolled ? 'text-primary' : 'text-white'
             }`}>
               ECODENT
@@ -78,6 +77,7 @@ const Header = () => {
               className={`relative p-2 rounded-full transition-all hover:bg-accent ${
                 isScrolled ? 'text-primary' : 'text-white'
               }`}
+              title="Carrito de compras"
             >
               <ShoppingCart className="w-6 h-6" />
               {cartItemsCount > 0 && (
@@ -88,10 +88,11 @@ const Header = () => {
             </Link>
 
             <Link
-              to={isAuthenticated ? '/cuenta' : '/login'}
+              to={isAuthenticated ? '/cuenta' : '/contacto'}
               className={`p-2 rounded-full transition-all hover:bg-accent ${
                 isScrolled ? 'text-primary' : 'text-white'
               }`}
+              title={isAuthenticated ? 'Mi cuenta' : 'Mi perfil'}
             >
               <User className="w-6 h-6" />
             </Link>
@@ -102,6 +103,7 @@ const Header = () => {
               className={`md:hidden p-2 rounded-lg transition-colors ${
                 isScrolled ? 'text-primary' : 'text-white'
               }`}
+              aria-label="Menú"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

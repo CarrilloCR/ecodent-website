@@ -3,7 +3,7 @@
 // ============================================
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Mail, Phone, MapPin, Leaf, Heart } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin, Heart } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,21 +32,35 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Leaf className="w-8 h-8 text-secondary" />
+            <Link to="/" className="inline-flex items-center space-x-2 group hover:opacity-80 transition-opacity">
+              <img 
+                src="/images/logo.jpeg" 
+                alt="Ecodent Logo" 
+                className="h-10 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
+              />
               <span className="text-2xl font-bold">ECODENT</span>
-            </div>
+            </Link>
             <p className="text-gray-300 text-sm">
               Transformando la higiene bucal en un acto de amor por el planeta. 
               Cada cepillado es una semilla de cambio.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" 
-                className="p-2 rounded-full bg-white/10 hover:bg-secondary transition-all">
+              <a 
+                href="https://facebook.com/ecodent" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Facebook Ecodent"
+                className="p-2 rounded-full bg-white/10 hover:bg-secondary transition-all duration-300 hover:scale-110"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-secondary transition-all">
+              <a 
+                href="https://instagram.com/ecodent" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram Ecodent"
+                className="p-2 rounded-full bg-white/10 hover:bg-secondary transition-all duration-300 hover:scale-110"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -58,7 +72,10 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.empresa.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-gray-300 hover:text-secondary transition-colors text-sm">
+                  <Link 
+                    to={link.path} 
+                    className="text-gray-300 hover:text-secondary transition-colors text-sm hover:translate-x-1"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -72,7 +89,10 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.productos.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-gray-300 hover:text-secondary transition-colors text-sm">
+                  <Link 
+                    to={link.path} 
+                    className="text-gray-300 hover:text-secondary transition-colors text-sm hover:translate-x-1"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -84,17 +104,27 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-secondary">Contacto</h3>
             <ul className="space-y-3">
-              <li className="flex items-start space-x-2 text-sm text-gray-300">
+              <li className="flex items-start space-x-2 text-sm text-gray-300 hover:text-secondary transition-colors cursor-default">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span>San José, Costa Rica</span>
               </li>
               <li className="flex items-center space-x-2 text-sm text-gray-300">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span>+506 2222-3333</span>
+                <a 
+                  href="tel:+50622223333"
+                  className="hover:text-secondary transition-colors"
+                >
+                  +506 2222-3333
+                </a>
               </li>
               <li className="flex items-center space-x-2 text-sm text-gray-300">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <span>info@ecodent.cr</span>
+                <a 
+                  href="mailto:info@ecodent.cr"
+                  className="hover:text-secondary transition-colors"
+                >
+                  info@ecodent.cr
+                </a>
               </li>
             </ul>
           </div>
@@ -112,7 +142,11 @@ const Footer = () => {
           </div>
           <div className="flex space-x-6">
             {footerLinks.legal.map((link) => (
-              <Link key={link.path} to={link.path} className="text-sm text-gray-300 hover:text-secondary transition-colors">
+              <Link 
+                key={link.path} 
+                to={link.path} 
+                className="text-sm text-gray-300 hover:text-secondary transition-colors"
+              >
                 {link.label}
               </Link>
             ))}

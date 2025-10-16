@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Leaf, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import Button from '../shared/Button';
 
 const Hero = () => {
@@ -64,14 +64,14 @@ const Hero = () => {
 
           {/* Right Content - Product Image */}
           <div className="relative fade-in-up delay-300">
-            <div className="relative z-10 animate-float">
-              {/* Placeholder for product image */}
-              <div className="w-full h-[500px] bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center border-2 border-white/20">
-                <div className="text-center space-y-4">
-                  <Leaf className="w-32 h-32 text-secondary mx-auto" />
-                  <p className="text-white text-xl">Imagen del Producto</p>
-                  <p className="text-gray-300 text-sm">hero-brush.png</p>
-                </div>
+            <div className="relative z-10 animate-float w-full h-[650px]">
+              {/* Product Image Container */}
+              <div className="w-full h-full bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center border-2 border-white/20 overflow-hidden shadow-2xl">
+                <img 
+                  src="/images/product-main.jpeg" 
+                  alt="Cepillo Ecodent - Producto Principal" 
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                />
               </div>
             </div>
             
