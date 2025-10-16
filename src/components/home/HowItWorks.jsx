@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShoppingCart, Package, Smile, Sprout } from 'lucide-react';
 import Button from '../shared/Button'; 
+import { Link } from 'react-router-dom';
 const HowItWorks = () => {
   const steps = [
     {
@@ -75,9 +76,11 @@ const HowItWorks = () => {
         </div>
 
         <div className="text-center mt-16 fade-in-up delay-400">
-          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-            Comenzar Ahora
-          </Button>
+           <Link to="/productos">
+           <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+              Comenzar Ahora
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

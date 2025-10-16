@@ -38,8 +38,12 @@ const Hero = () => {
                   Comprar Ahora
                 </Button>
               </Link>
-              <Link to="/nosotros">
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+              <Link to="/nosotros" className="block">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="w-full border-white text-white hover:bg-white/20"
+                >
                   Conocer Más
                 </Button>
               </Link>

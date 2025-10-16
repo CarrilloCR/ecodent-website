@@ -54,10 +54,10 @@ const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+            {features.map((feature, index) => (
             <Card 
               key={index}
-              className={`fade-in-up delay-${index * 100} group cursor-pointer`}
+              className={`fade-in-up delay-${(index + 1) * 100} group cursor-pointer`}
             >
               <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 {feature.icon}

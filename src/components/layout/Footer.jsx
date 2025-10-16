@@ -1,6 +1,3 @@
-// ============================================
-// 📁 src/components/layout/Footer.jsx
-// ============================================
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Mail, Phone, MapPin, Heart } from 'lucide-react';
@@ -34,7 +31,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="inline-flex items-center space-x-2 group hover:opacity-80 transition-opacity">
               <img 
-                src="/images/logo.jpeg" 
+                src="/images/logo.png" 
                 alt="Ecodent Logo" 
                 className="h-10 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
               />

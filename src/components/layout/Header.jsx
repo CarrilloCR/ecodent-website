@@ -41,7 +41,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group hover:opacity-80 transition-opacity">
             <img 
-              src="/images/logo.jpeg" 
+              src="/images/logo.png" 
               alt="Ecodent Logo" 
               className="h-12 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
             />

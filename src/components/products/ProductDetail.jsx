@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Minus, Plus, Check, Truck, Shield, Recycle } from 'lucide-react';
+import { X, Minus, Plus, Check, Truck, Shield, Recycle, Package } from 'lucide-react';
 import Button from '../shared/Button';
 import Badge from '../shared/Badge';
 

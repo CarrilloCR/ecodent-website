@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, Leaf, Package } from 'lucide-react';
+import { Check, Leaf } from 'lucide-react';
 import Button from '../shared/Button';
 import Badge from '../shared/Badge';
 
@@ -11,7 +11,7 @@ const ProductShowcase = () => {
       name: "Kit Inicial Ecodent",
       price: 9000,
       description: "Todo lo que necesitas para comenzar tu viaje sostenible",
-      image: "product-main.png",
+      image: "/images/product-main.jpeg",
       features: [
         "Mango de bambú moso duradero y reutilizable",
         "2 cabecillas biodegradables con semillas",
@@ -26,7 +26,7 @@ const ProductShowcase = () => {
       name: "Pack 2 Cabecillas",
       price: 2800,
       description: "Reposición perfecta para tu cepillo Ecodent",
-      image: "product-details.png",
+      image: "/images/product-details.jpeg",
       features: [
         "2 cabecillas intercambiables",
         "Cerdas de nylon vegetal suave/media",
@@ -41,7 +41,7 @@ const ProductShowcase = () => {
       name: "Cabecillas Premium Miswak",
       price: 3500,
       description: "Máxima protección con fibras concentradas",
-      image: "miswak.jpg",
+      image: "/images/miswak.jpg",
       features: [
         "Fibras de Miswak de alta concentración",
         "Efecto blanqueador natural",
@@ -55,6 +55,10 @@ const ProductShowcase = () => {
   };
 
   const currentProduct = products[activeTab];
+
+  const handleAddToCart = () => {
+    alert(`✅ ${currentProduct.name} agregado al carrito`);
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -105,11 +109,16 @@ const ProductShowcase = () => {
           {/* Image */}
           <div className="relative scale-in">
             <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-3xl blur-3xl"></div>
-            <div className="relative bg-accent rounded-3xl p-8 flex items-center justify-center min-h-[400px]">
-              <div className="text-center">
-                <Package className="w-32 h-32 text-primary mx-auto mb-4" />
-                <p className="text-gray-600 font-medium">{currentProduct.image}</p>
-              </div>
+            <div className="relative bg-accent rounded-3xl overflow-hidden min-h-[400px] flex items-center justify-center">
+              <img 
+                src={currentProduct.image}
+                alt={currentProduct.name}
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.parentElement.innerHTML += '<div class="text-center"><p class="text-gray-500">Imagen no disponible</p></div>';
+                }}
+              />
             </div>
             
             {activeTab === 'kit' && (
@@ -156,7 +165,11 @@ const ProductShowcase = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" className="flex-1">
+              <Button 
+                size="lg" 
+                className="flex-1"
+                onClick={handleAddToCart}
+              >
                 Agregar al Carrito
               </Button>
               <Button variant="outline" size="lg" className="flex-1">
